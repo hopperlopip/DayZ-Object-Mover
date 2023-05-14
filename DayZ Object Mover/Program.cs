@@ -33,7 +33,7 @@ for (int i = 0; i < lines.Length; i++)
     double ratioLines = thisLine / lines.Length;
     string percentLines = (ratioLines * 100).ToString("N0") + "%";
     Console.WriteLine(percentLines);
-    /*ClearLastLine();*/
+    ClearLastLine();
     /*Console.WriteLine((i + 1).ToString() + ") " + lines[i]);*/
 
     string[] coordinates = lines[i].Split(';');
