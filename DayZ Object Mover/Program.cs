@@ -27,6 +27,7 @@ if (string.IsNullOrEmpty(outputFilePath))
     outputFilePath = inputFilePath.Replace(".txt", "_output.txt");
 }
 lines = File.ReadAllLines(inputFilePath, Encoding.UTF8);
+Console.CursorVisible = false;
 for (int i = 0; i < lines.Length; i++)
 {
     double thisLine = (i + 1);
@@ -45,6 +46,7 @@ for (int i = 0; i < lines.Length; i++)
     coordinates[2] = cDoubleY.ToString().Replace(',', '.');
     lines[i] = String.Join(';', coordinates);
 }
+Console.CursorVisible = true;
 File.WriteAllLines(outputFilePath, lines, Encoding.UTF8);
 Console.Write("Done!");
 Console.ReadKey();
