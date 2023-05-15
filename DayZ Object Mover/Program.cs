@@ -10,12 +10,13 @@ double numY;
 
 Start:
 Console.Clear();
-Console.Write("Enter the file path: ");
+Console.Write("Enter the file path (or drag-and-drop the file): ");
 inputFilePath = Console.ReadLine();
 if (string.IsNullOrEmpty(inputFilePath))
 {
     goto Start;
 }
+inputFilePath = inputFilePath.Replace("\"", null);
 Console.Write("Enter a number that should to be added to X: ");
 double.TryParse(Console.ReadLine().Replace(',', '.'), NumberStyles.Any, CultureInfo.InvariantCulture, out numX);
 Console.Write("Enter a number that should to be added to Y: ");
@@ -33,8 +34,9 @@ for (int i = 0; i < lines.Length; i++)
     double thisLine = (i + 1);
     double ratioLines = thisLine / lines.Length;
     string percentLines = (ratioLines * 100).ToString("N0") + "%";
-    Console.WriteLine(percentLines);
-    ClearLastLine();
+    Console.WriteLine("In process: " + percentLines);
+    ClearLastLine(-1);
+    Console.Title = "In process: " + percentLines;
     /*Console.WriteLine((i + 1).ToString() + ") " + lines[i]);*/
 
     string[] coordinates = lines[i].Split(';');
@@ -48,12 +50,14 @@ for (int i = 0; i < lines.Length; i++)
 }
 Console.CursorVisible = true;
 File.WriteAllLines(outputFilePath, lines, Encoding.UTF8);
+ClearLastLine(0);
 Console.Write("Done!");
+Console.Title = "Done!";
 Console.ReadKey();
 
-static void ClearLastLine()
+static void ClearLastLine(int curPosTop)
 {
     Console.SetCursorPosition(0, Console.CursorTop);
     Console.Write(new string(' ', Console.BufferWidth));
-    Console.SetCursorPosition(0, Console.CursorTop - 1);
+    Console.SetCursorPosition(0, Console.CursorTop + curPosTop);
 }
