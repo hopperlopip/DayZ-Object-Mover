@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DayZ Object Mover CLI", "DayZ Object Mover CLI\DayZ Object Mover CLI.csproj", "{ACBD6837-4598-42E0-82CA-AC9C9220710E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACBD6837-4598-42E0-82CA-AC9C9220710E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACBD6837-4598-42E0-82CA-AC9C9220710E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACBD6837-4598-42E0-82CA-AC9C9220710E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACBD6837-4598-42E0-82CA-AC9C9220710E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {211F5B2D-2EA7-4EF1-89B9-D15FFEE979A5}
+	EndGlobalSection
+EndGlobal
