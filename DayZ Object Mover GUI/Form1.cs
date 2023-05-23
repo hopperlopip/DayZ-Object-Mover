@@ -25,6 +25,12 @@ namespace DayZ_Object_Mover_GUI
         {
             InitializeComponent();
             openFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
+            saveFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            inputFilePath = textBox1.Text;
         }
 
         private void OpenButton_Click(object sender, EventArgs e)
@@ -57,7 +63,15 @@ namespace DayZ_Object_Mover_GUI
                     return;
                 }
                 inputFilePath = inputFilePath.Replace("\"", null);
-                lines = File.ReadAllLines(inputFilePath, Encoding.UTF8);
+                try
+                {
+                    lines = File.ReadAllLines(inputFilePath, Encoding.UTF8);
+                }
+                catch (System.IO.FileNotFoundException)
+                {
+                    MessageBox.Show("Please type the correct path");
+                    return;
+                }
                 for (int i = 0; i < lines.Length; i++)
                 {
                     double thisLine = (i + 1);
@@ -79,7 +93,10 @@ namespace DayZ_Object_Mover_GUI
             }
             else
             {
-                saveFileDialog1.ShowDialog();
+                if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
+                {
+                    return;
+                }
                 outputFilePath = saveFileDialog1.FileName;
                 File.WriteAllLines(outputFilePath, lines, Encoding.UTF8);
                 condition = "start";
